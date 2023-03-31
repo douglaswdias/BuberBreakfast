@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SlzNdQ9Dlf6Iwxc3fBBb7S7hrwwpDKhTNNLCz5NIfoKgUt0D2bnYG6hEuiNaG2pERGbVBVGvU6ZumykIpc2CbA==",
+  "dgSpecHash": "6v7PUnP6ttr2wzT/vgiNUwei6xprKQtAW1ZJo2fhhTRqDLnPUz1orfXDxC9OffzxIm1iyv52sPEamHs2TA4+Lw==",
   "success": true,
-  "projectFilePath": "c:\\Dev\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Dev\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dougl\\.nuget\\packages\\erroror\\1.2.1\\erroror.1.2.1.nupkg.sha512"
+  ],
   "logs": []
 }
