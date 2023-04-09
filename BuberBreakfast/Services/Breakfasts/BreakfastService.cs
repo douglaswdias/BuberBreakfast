@@ -1,4 +1,3 @@
-using BuberBreakfast.Controllers;
 using BuberBreakfast.Models;
 using BuberBreakfast.Persistence;
 using BuberBreakfast.ServiceErrors;
@@ -12,7 +11,7 @@ public class BreakfastService : IBreakfastService
 
     public BreakfastService(BuberBreakfastDbContext dbContext)
     {
-        _dbContext = dbContext;
+      _dbContext = dbContext;
     }
 
     public ErrorOr<Created> CreateBreakfast(Breakfast breakfast)
@@ -29,11 +28,11 @@ public class BreakfastService : IBreakfastService
 
     if (breakfast is null)
     {
-            return Errors.Breakfast.NotFound;
+      return Errors.Breakfast.NotFound;
     }
 
     _dbContext.Remove(breakfast);
-    _dbContext.SaveChanges(true);
+    _dbContext.SaveChanges();
 
     return Result.Deleted;
   }
@@ -50,15 +49,15 @@ public class BreakfastService : IBreakfastService
 
   public ErrorOr<UpsertedBreakfast> UpsertBreakfast(Breakfast breakfast)
   {
-    var isNewlyCreated = _dbContext.Breakfasts.Find(breakfast.Id) is not Breakfast dbBreakfast;
+    var isNewlyCreated = !_dbContext.Breakfasts.Any(b => b.Id == breakfast.Id);
 
     if (isNewlyCreated)
     {
-        _dbContext.Breakfasts.Add(breakfast);
+      _dbContext.Breakfasts.Add(breakfast);
     }
     else
     {
-        _dbContext.Breakfasts.Update(breakfast);
+      _dbContext.Breakfasts.Update(breakfast);
     }
 
     _dbContext.SaveChanges();

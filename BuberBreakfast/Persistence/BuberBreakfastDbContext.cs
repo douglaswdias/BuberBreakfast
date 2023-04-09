@@ -9,7 +9,10 @@ public class BuberBreakfastDbContext : DbContext
     {
 
     }
-    public DbSet<Breakfast> Breakfasts { get; set; } = null;
+    public DbSet<Breakfast> Breakfasts { get; set; } = null!;
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(BuberBreakfastDbContext).Assembly);
+    }
 }
-
